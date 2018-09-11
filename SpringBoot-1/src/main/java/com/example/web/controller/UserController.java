@@ -1,11 +1,20 @@
 package com.example.web.controller;
 
+import com.example.domain.model.AuthToken;
+import com.example.domain.model.LoginUser;
 import com.example.domain.model.Role;
 import com.example.domain.model.User;
 import com.example.domain.repository.RoleRepository;
 import com.example.domain.repository.UserRepository;
+import com.example.security.JwtTokenUtil;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -17,17 +26,10 @@ import java.util.List;
 public class    UserController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private UserService userService;
-
-    @Autowired
-    private RoleRepository roleRepository;
 
     @PostMapping("/save")
     public User saveUser(@RequestBody User user){
-
         return userService.save(user);
     }
 
@@ -40,6 +42,8 @@ public class    UserController {
 //    public User getOne(@PathVariable(value = "id") Long id){
 //        return userService.findById(id);
 //    }
+
+
 
 
 }

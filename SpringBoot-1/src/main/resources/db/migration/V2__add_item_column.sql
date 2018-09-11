@@ -1,0 +1,12 @@
+Create table Item(
+ Id INT NOT NULL AUTO_INCREMENT,
+ name VARCHAR(45) NOT NULL,
+ price FLOAT NOT NULL,
+ priceWithVat FLOAT NOT NULL,
+ vat FLOAT NOT NULL,
+ producent VARCHAR (45) NOT NULL,
+ PRIMARY KEY (Id)
+);
+
+
+
